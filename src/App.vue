@@ -1,11 +1,38 @@
 <template>
+  <div id="app">
+    <Header />
+    <SearchForm @search="search"/>
+    <SearchResults
+      v-if="videos.length > 0"
+      :videos="videos"
+      :reformatedSearchString="reformatedSearchString"
+    />
+    <Pagination
+      v-if="videos.length > 0"
+      :prevPageToken="api.prevPageToken"
+      :nextPageToken="api.nextPageToken"
+      @prev-page="prevPage"
+      @next-page="nextPage"
+    />
+  </div>
 </template>
 
 <script>
+import Header from './components/layout/Header.vue';
+import SearchForm from './components/SearchForm.vue';
+import SearchResults from './components/SearchResults.vue';
+import Pagination from './components/Pagination.vue';
+import youtubeKey from './api.config.js'
+
 export default {
 
   name: 'App',
-  components: {},
+  components: {
+    Header,
+    SearchForm,
+    SearchResults,
+    Pagination,
+  },
   data () {
     return {
       videos: [],
@@ -17,7 +44,7 @@ export default {
         order: 'videoCount',
         maxResults: 12,
         q: '',
-        key: YOUTUBE_API_KEY
+        key: youtubeKey,
         prevPageToken: '',
         nextPageToken: '',
       }
