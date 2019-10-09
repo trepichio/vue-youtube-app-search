@@ -41,7 +41,7 @@ export default {
         baseUrl: 'https://www.googleapis.com/youtube/v3/search?',
         type: 'video',
         part: 'snippet',
-        order: 'videoCount',
+        order: 'viewCount',
         maxResults: 12,
         q: '',
         key: youtubeKey,
@@ -53,7 +53,7 @@ export default {
   methods: {
     search (searchParams) {
       this.reformatedSearchString = searchParams.join(' ')
-      this.api.q = this.searchParams.join('+')
+      this.api.q = searchParams.join('+')
       const { baseUrl, type, part, order, maxResults, q, key } = this.api
       const apiUrl = `${baseUrl}part=${part}&type=${type}&order=${order}&maxResults=${maxResults}&key=${key}&q=${q}`
       this.getData(apiUrl)
