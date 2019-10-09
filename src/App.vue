@@ -22,7 +22,8 @@ import Header from './components/layout/Header.vue';
 import SearchForm from './components/SearchForm.vue';
 import SearchResults from './components/SearchResults.vue';
 import Pagination from './components/Pagination.vue';
-import youtubeKey from './api.config.js'
+import apiKey from './api.config.js'
+import axios from 'axios'
 
 export default {
 
@@ -44,7 +45,7 @@ export default {
         order: 'viewCount',
         maxResults: 12,
         q: '',
-        key: youtubeKey,
+        key: apiKey.youtubeKey,
         prevPageToken: '',
         nextPageToken: '',
       }
