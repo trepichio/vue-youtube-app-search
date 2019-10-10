@@ -61,12 +61,12 @@ export default {
     },
     prevPage () {
       const { baseUrl, type, part, order, maxResults, q, key, prevPageToken } = this.api
-      const apiUrl = `${baseUrl}part=${part}&type=${type}&order=${order}&maxResults=${maxResults}&key=${key}&q=${q}&prevPageToken=${prevPageToken}`
+      const apiUrl = `${baseUrl}part=${part}&type=${type}&order=${order}&maxResults=${maxResults}&key=${key}&q=${q}pageToken=${prevPageToken}`
       this.getData(apiUrl)
     },
     nextPage () {
       const { baseUrl, type, part, order, maxResults, q, key, nextPageToken } = this.api
-      const apiUrl = `${baseUrl}part=${part}&type=${type}&order=${order}&maxResults=${maxResults}&key=${key}&q=${q}&nextPageToken=${nextPageToken}`
+      const apiUrl = `${baseUrl}part=${part}&type=${type}&order=${order}&maxResults=${maxResults}&key=${key}&q=${q}&pageToken=${nextPageToken}`
       this.getData(apiUrl)
     },
     getData (apiUrl) {
